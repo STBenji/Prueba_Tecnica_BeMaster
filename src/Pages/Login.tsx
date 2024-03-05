@@ -29,7 +29,6 @@ export default function Login() {
   } = useForm<Inputs>({ resolver: zodResolver(inputForm) })
 
   const onSubmit = (data: Inputs) => {
-    console.log(data)
     navigate('/home')
   }
 
