@@ -17,24 +17,34 @@ export const NavbarComponent = () => {
         </button>
       </div>
       <ul className="justify-end hidden gap-2 xl:flex">
+        <li className="flex items-center px-4 cursor-pointer hover:border-b text-wrap" onClick={() => navigate(`/home`)}>
+          Categorías
+        </li>
         {itemsNavbar.map((item) => (
-          <li key={item} onClick={() => navigate(`/${item}`)} className="flex items-center px-6 cursor-pointer hover:border-b text-wrap">
+          <li key={item} className="flex items-center px-4 cursor-pointer hover:border-b text-wrap">
             {item}
           </li>
         ))}
         <li className="flex items-center cursor-pointer">
           <SettingIcon width="1.5em" height="1.5em" />
         </li>
-        <li className="p-2 text-white bg-red-500 cursor-pointer rounded-xl">Cerrar sesión</li>
+        <li className="p-2 text-white bg-red-500 cursor-pointer rounded-xl" onClick={() => navigate(`/`)}>
+          Cerrar sesión
+        </li>
       </ul>
       <div className="grid xl:hidden">
         <ul className={`bg-[#333] text-white transition-all duration-300 ${isOpen ? 'h-screen' : 'h-0'} overflow-hidden`}>
+          <li className="p-3 cursor-pointer" onClick={() => navigate(`/home`)}>
+            Categorías
+          </li>
           {itemsNavbar.map((item) => (
-            <li key={item} onClick={() => navigate(`/${item}`)} className="p-3 cursor-pointer hover:bg-gray-700">
+            <li key={item} className="p-3 cursor-pointer hover:bg-gray-700">
               {item}
             </li>
           ))}
-          <li className="p-3 text-white bg-red-500 cursor-pointer rounded-xl">Cerrar sesión</li>
+          <li className="p-3 text-white bg-red-500 cursor-pointer rounded-xl" onClick={() => navigate(`/`)}>
+            Cerrar sesión
+          </li>
         </ul>
       </div>
     </nav>
