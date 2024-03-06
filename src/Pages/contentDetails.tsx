@@ -31,13 +31,17 @@ export default function ContentDetails() {
           </div>
         </div>
       </article>
-      <h2 className="px-6 text-3xl font-bold">Trailers</h2>
+      <h2 className="px-6 mt-32 text-3xl font-bold">Trailers</h2>
       <section className="flex flex-wrap justify-center gap-4">
         {Array.isArray(moviesVideo) && moviesVideo.length > 0 ? moviesVideo.slice(0, 3).map((item) => <iframe title={item.name} className="w-[370px] h-[400px] md:w-[550px]" src={`https://www.youtube.com/embed/${item.key}`} frameBorder="0" allowFullScreen key={item.id}></iframe>) : <p className="font-bold tracking-widest text-2zxl">La película no tiene videos disponibles.</p>}
       </section>
       <h2 className="px-6 text-3xl font-bold">Galería</h2>
       <section className="flex flex-wrap justify-center flex-grow gap-4 px-12">
-        {Array.isArray(moviesImages) && moviesImages.length > 0 ? moviesImages.slice(0, 6).map((item, index) => <img key={index} src={'https://image.tmdb.org/t/p/original' + item.file_path} alt="" width={350} height={300} className="flex-grow rounded-lg hover:scale-[1.03] transition-scale ease-in delay-75" />) : <p className="text-2xl font-bold tracking-widest">La película no tiene videos disponibles.</p>}
+        {Array.isArray(moviesImages) && moviesImages.length > 0 ? (
+          moviesImages.slice(0, 6).map((item, index) => <img key={index} src={'https://image.tmdb.org/t/p/original' + item.file_path} alt="" width={350} height={300} className="flex-grow rounded-lg hover:scale-[1.03] transition-scale ease-in delay-75" />)
+        ) : (
+          <p className="text-2xl font-bold tracking-widest">La película no tiene videos disponibles.</p>
+        )}
       </section>
     </section>
   )
