@@ -38,7 +38,7 @@ export const Card = () => {
   const navigate = useNavigate()
 
   return categories.map((item, index) => (
-    <div key={index} className={`border-2 h-[15dvh] w-64 grid grid-rows-2 p-5 rounded-xl cursor-pointer flex-grow aspect-square border-${item.color}`} onClick={() => navigate(`${item.route}`)}>
+    <div key={index} className={`border-2 h-[15dvh] w-64 grid grid-rows-2 p-5 rounded-xl cursor-pointer flex-grow aspect-square border-${item.color}`} onClick={() => navigate(`${item.route}`)} data-aos="fade-up">
       <i className={`text-${item.color}`}>{item.image}</i>
       <h3 className="text-2xl">{item.title}</h3>
     </div>

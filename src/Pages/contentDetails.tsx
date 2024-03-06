@@ -16,7 +16,7 @@ export default function ContentDetails() {
       <NavbarComponent />
       <article className="grid gap-10 px-6 mt-24 xl:grid-cols-2 md:max-w-[60%] h-screen place-items-center">
         <div className="">
-          <img src={'https://image.tmdb.org/t/p/original' + moviesDataId?.poster_path} alt="" className="object-cover rounded-xl md:max-w-full md:max-h-full" loading="lazy" width={400} height={200} />
+          <img src={'https://image.tmdb.org/t/p/original' + moviesDataId?.poster_path} alt="" className="z-20 object-cover shadow-md shadow-slate-100 rounded-xl md:max-w-full md:max-h-full" loading="lazy" width={400} height={200} />
         </div>
         <div className="grid gap-10">
           <h2 className="text-2xl font-bold xl:text-4xl">{moviesDataId?.title}</h2>
@@ -37,7 +37,7 @@ export default function ContentDetails() {
       </section>
       <h2 className="px-6 text-3xl font-bold">Galería</h2>
       <section className="flex flex-wrap justify-center flex-grow gap-4 px-12">
-        {Array.isArray(moviesImages) && moviesImages.length > 0 ? moviesImages.map((item, index) => <img key={index} src={'https://image.tmdb.org/t/p/original' + item.file_path} alt="" width={350} height={300} className="flex-grow rounded-lg hover:scale-[1.03] transition-scale ease-in delay-75" />) : <p className="text-2xl font-bold tracking-widest">La película no tiene videos disponibles.</p>}
+        {Array.isArray(moviesImages) && moviesImages.length > 0 ? moviesImages.slice(0, 6).map((item, index) => <img key={index} src={'https://image.tmdb.org/t/p/original' + item.file_path} alt="" width={350} height={300} className="flex-grow rounded-lg hover:scale-[1.03] transition-scale ease-in delay-75" />) : <p className="text-2xl font-bold tracking-widest">La película no tiene videos disponibles.</p>}
       </section>
     </section>
   )
