@@ -8,7 +8,7 @@ MediaStreamWeb es un aplicativo web desarrollado como parte de una prueba técni
 Sigue estos pasos para instalar y ejecutar el clon en tu entorno local:
 
 ```js
-git clone [https://github.com/STBenji/Prueba_Tecnica_MIC](https://github.com/STBenji/Prueba_Tecnica_BeMaster).git
+git clone https://github.com/STBenji/Prueba_Tecnica_BeMaster.git
 cd Prueba_Tecnica_BeMaster
 npm install
 ```
