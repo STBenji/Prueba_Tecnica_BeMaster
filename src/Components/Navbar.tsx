@@ -8,6 +8,11 @@ export const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
   const navigate = useNavigate()
 
+  const logout = () => {
+    localStorage.removeItem('user-data')
+    navigate(`/`)
+  }
+
   return (
     <nav className={`bg-[#333] text-white grid xl:grid-cols-2 p-5 items-center border-b fixed top-0 w-full z-10 xl:${() => setIsOpen(false)}`}>
       <div className="flex items-center justify-between w-full">
@@ -28,7 +33,7 @@ export const NavbarComponent = () => {
         <li className="flex items-center cursor-pointer">
           <SettingIcon width="1.5em" height="1.5em" />
         </li>
-        <li className="p-2 text-white bg-red-500 cursor-pointer rounded-xl" onClick={() => navigate(`/`)}>
+        <li className="p-2 text-white bg-red-500 cursor-pointer rounded-xl" onClick={logout}>
           Cerrar sesión
         </li>
       </ul>
@@ -42,7 +47,7 @@ export const NavbarComponent = () => {
               {item}
             </li>
           ))}
-          <li className="p-3 text-white bg-red-500 cursor-pointer rounded-xl" onClick={() => navigate(`/`)}>
+          <li className="p-3 text-white bg-red-500 cursor-pointer rounded-xl" onClick={logout}>
             Cerrar sesión
           </li>
         </ul>

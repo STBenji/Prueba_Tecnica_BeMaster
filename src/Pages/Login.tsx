@@ -29,6 +29,7 @@ export default function Login() {
   } = useForm<Inputs>({ resolver: zodResolver(inputForm) })
 
   const onSubmit = (data: Inputs) => {
+    localStorage.setItem('user-data', JSON.stringify(data))
     navigate('/home')
   }
 
@@ -48,19 +49,19 @@ export default function Login() {
 
   return (
     <section className="min-h-screen grid place-content-center bg-[#222] px-5 relative">
-      <p className="top-0 left-0 text-white fixed m-5 font-bold">MediaStreamWeb</p>
-      <form method="post" className="p-6 md:p-12 bg-white rounded-xl grid place-content-center" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="text-center text-2xl md:text-3xl font-semibold">Inicia sesión</h2>
+      <p className="fixed top-0 left-0 m-5 font-bold text-white">MediaStreamWeb</p>
+      <form method="post" className="grid p-6 bg-white md:p-12 rounded-xl place-content-center" onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="text-2xl font-semibold text-center md:text-3xl">Inicia sesión</h2>
 
         <label className={`mt-10 ${error.emailError && 'text-red-500'}`}>Correo Electrónico</label>
         <input type="email" id="email" placeholder="ejemplo@ejemplo.com" className={`py-2 px-5 w-[20rem] rounded-lg outline-none border ${error.emailError && 'border-red-500 text-red-500'}`} {...register('email')} autoComplete="email" />
-        <p className="text-red-500 text-sm">{error.emailError}</p>
+        <p className="text-sm text-red-500">{error.emailError}</p>
 
         <label className={`mt-5 ${error.passwordError && 'text-red-500'}`}>Contraseña</label>
         <input type="password" id="password" placeholder="*********" className={`py-2 px-5 w-[20rem] rounded-lg outline-none border ${error.passwordError && 'border-red-500 text-red-500'}`} {...register('password')} autoComplete="password" />
-        <p className="text-red-500 text-sm">{error.passwordError}</p>
+        <p className="text-sm text-red-500">{error.passwordError}</p>
 
-        <button className="bg-blue-500 rounded-lg py-2 text-white mt-5  " type="submit">
+        <button className="py-2 mt-5 text-white bg-blue-500 rounded-lg " type="submit">
           Iniciar sesión
         </button>
       </form>
