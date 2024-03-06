@@ -3,11 +3,11 @@ import { NavbarComponent } from '../Components/Navbar'
 
 export default function Home() {
   return (
-    <section className="bg-[#333] text-white min-h-screen">
+    <section className="bg-[#333] text-white min-h-screen ">
       <NavbarComponent />
-      <section className="mt-48">
-        <h3 className="text-center mb-10 text-4xl font-bold">Categorías</h3>
-        <article className="flex flex-wrap gap-4 w-3/6 mx-auto">
+      <section className="relative grid">
+        <h3 className="text-4xl font-bold text-center mt-28 md:mt-48">Categorías</h3>
+        <article className="flex flex-wrap w-3/6 gap-4 mx-auto py-14">
           <Card />
         </article>
       </section>

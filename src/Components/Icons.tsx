@@ -75,3 +75,11 @@ export const SettingIcon = ({ width, height, className, ...restProps }: Icon) =>
     </svg>
   )
 }
+
+export const MenuIcon = ({ width, height, className, ...restProps }: Icon) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 24 24" className={className} {...restProps}>
+      <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M4 12h16M4 6h16M4 18h16" />
+    </svg>
+  )
+}
