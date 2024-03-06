@@ -1,10 +1,8 @@
 # MediaStreamWeb - Prueba Técnica: README 🚀
 MediaStreamWeb es un aplicativo web desarrollado como parte de una prueba técnica que permite a los usuarios visualizar trailers de películas que están categorizadas, junto con imágenes y detalles informativos sobre cada película. 
 
-## Instalación
-<ul>
-  <li>HTML, CSS, JavaScript, React.js.<li/>  
-<ul/>
+## Tecnología utilizadas
+<li>HTML, CSS, JavaScript, React.js.<li/>  
   
 ## Instalación
 Sigue estos pasos para instalar y ejecutar el clon en tu entorno local:
