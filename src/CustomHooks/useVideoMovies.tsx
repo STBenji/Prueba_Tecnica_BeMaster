@@ -1,38 +1,30 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-interface Movie {
-  adult: boolean
-  backdrop_path: string
-  genre_ids: number[]
-  id: number
-  original_language: string
-  original_title: string
-  overview: string
-  popularity: number
-  poster_path: string
-  release_date: string
-  title: string
-  video: boolean
-  vote_average: number
-  vote_count: number
+interface MovieVideo {
+  moviesVideo: Array<VideoJSON> | null
+  error: string | null
 }
 
-export const useMovies = () => {
-  const [moviesData, setMoviesData] = useState<Movie[]>([])
+interface VideoJSON {
+  id: number
+  name: string
+  key: string
+}
+
+export const useVideosMovies = (id: string): MovieVideo => {
+  const [moviesVideo, setMoviesVideo] = useState<Array<VideoJSON> | null>([])
   const [error, setError] = useState<string | null>(null)
+
+  const idMovie = parseInt(id, 10)
 
   useEffect(() => {
     const fetchData = async () => {
       const options = {
         method: 'GET',
-        url: 'https://api.themoviedb.org/3/discover/movie',
+        url: `https://api.themoviedb.org/3/movie/${idMovie}/videos`,
         params: {
-          include_adult: false,
-          include_video: false,
           language: 'es',
-          page: 3,
-          sort_by: 'popularity.desc',
         },
         headers: {
           accept: 'application/json',
@@ -42,14 +34,14 @@ export const useMovies = () => {
 
       try {
         const response = await axios.request(options)
-        setMoviesData(response.data.results)
+        setMoviesVideo(response.data.results)
       } catch (error) {
-        setError('Error al obtener las películas')
+        setError('Error al obtener el video de la película.')
       }
     }
 
     fetchData()
-  }, [])
+  }, [idMovie])
 
-  return { moviesData, error }
+  return { moviesVideo, error }
 }

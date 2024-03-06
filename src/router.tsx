@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 import App from './App'
 import Home from './Pages/Home'
-import Movies from './Pages/ContentCategory'
+import ContentCategory from './Pages/ContentCategory'
+import ContentDetails from './Pages/contentDetails'
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
   },
   {
     path: '/home/:categoria',
-    element: <Movies />,
+    element: <ContentCategory />,
+  },
+  {
+    path: '/movies/:id',
+    element: <ContentDetails />,
   },
 ])
