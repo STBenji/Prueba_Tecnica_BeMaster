@@ -14,7 +14,7 @@ export default function ContentDetails() {
     <section className="min-h-auto bg-[#333] text-white  py-6 md:min-h-screen grid xl:place-content-center md:place-items-center gap-12 items-center">
       <img src={'https://image.tmdb.org/t/p/original' + moviesDataId?.backdrop_path} alt="" className="absolute hidden object-cover w-full h-screen md:flex top-20 opacity-20 blur-sm" loading="lazy" />
       <NavbarComponent />
-      <article className="grid gap-10 px-6 mt-24 xl:grid-cols-2 md:max-w-[60%] h-screen place-items-center">
+      <article className="grid gap-10 px-6 mt-24 xl:grid-cols-2 md:max-w-[60%] h-full xl:h-screen place-items-center">
         <div className="">
           <img src={'https://image.tmdb.org/t/p/original' + moviesDataId?.poster_path} alt="" className="z-20 object-cover shadow-md shadow-slate-100 rounded-xl md:max-w-full md:max-h-full" loading="lazy" width={400} height={200} />
         </div>
@@ -24,7 +24,7 @@ export default function ContentDetails() {
           <h2 className="text-xl font-semibold xl:text-3xl">Generos</h2>
           <div className="flex gap-5">
             {moviesDataId?.genres.map((item) => (
-              <p className="px-5 py-2 bg-blue-600 rounded-xl" key={item.id}>
+              <p className="px-5 py-2 bg-blue-600 rounded-xl text-wrap" key={item.id}>
                 {item.name}
               </p>
             ))}
