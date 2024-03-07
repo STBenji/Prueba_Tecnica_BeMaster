@@ -23,6 +23,7 @@ export default function ContentCategory() {
   const navigate = useNavigate()
 
   const genreID = genreMovie[categoria ?? 'accion']
+  
   const filteredMovies = moviesData.filter((movie) => movie.genre_ids.includes(genreID))
 
   const handleNext = () => {

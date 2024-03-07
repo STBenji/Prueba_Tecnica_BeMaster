@@ -67,13 +67,13 @@ export default function Movies() {
 
         {error && <p>Error al cargar películas: {error}</p>}
 
-        <aside className="grid grid-cols-6 gap-3">
-          {moviesData.map((item) => (
-            <div key={item.id} className="relative cursor-pointer group" onClick={() => navigate(`/movies/${item.id}`)}>
+        <aside className="grid gap-3 xl:grid-cols-6 md:grid-cols-3 sm:grid-cols-1">
+          {moviesData.map((item, index) => (
+            <div key={index} className="relative cursor-pointer group" onClick={() => navigate(`/movies/${item.id}`)}>
               {loading && <Skeleton />} {/* Render skeleton only when loading is true */}
               <img src={'https://image.tmdb.org/t/p/original' + item.poster_path} alt="" className="object-cover h-full rounded-md" width={250} height={250} loading="lazy" onLoad={handleImageLoad} onError={handleImageLoad} />
-              <div className="inset-0 flex items-end justify-center py-6 transition-opacity duration-300 ease-in-out opacity-0 xl:bg-opacity-50 xl:bg-black xl:absolute xl:opacity-1 group-hover:opacity-100">
-                <p className="text-lg font-bold tracking-wide text-center text-white border-b xl:border-none">{item.title}</p>
+              <div className="absolute inset-0 flex items-end justify-center py-6 mt-1 transition-opacity duration-300 ease-in-out bg-black bg-opacity-50 opacity-0 opacity-1 group-hover:opacity-100">
+                <p className="text-lg font-bold tracking-wide text-center text-white border-b border-none">{item.title}</p>
               </div>
             </div>
           ))}

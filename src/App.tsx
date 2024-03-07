@@ -14,6 +14,7 @@ function App() {
       navigate('/')
     }
   }, [navigate])
+  
   return (
     <>
       <Login />
