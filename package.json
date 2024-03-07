@@ -1,7 +1,7 @@
 {
   "name": "prueba-tecnica-bemaster",
   "private": true,
-  "version": "0.6.4",
+  "version": "0.7.5",
   "type": "module",
   "scripts": {
     "dev": "vite",

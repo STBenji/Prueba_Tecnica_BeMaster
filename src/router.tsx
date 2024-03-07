@@ -3,6 +3,7 @@ import App from './App'
 import Home from './Pages/Home'
 import ContentCategory from './Pages/ContentCategory'
 import ContentDetails from './Pages/contentDetails'
+import Movies from './Pages/Movies'
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
   {
     path: '/movies/:id',
     element: <ContentDetails />,
+  },
+  {
+    path: '/movies',
+    element: <Movies />,
   },
 ])

@@ -2,7 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import { MenuIcon, SettingIcon } from './Icons'
 import { useState } from 'react'
 
-const itemsNavbar = ['Películas', 'Series', 'Documentales', 'Niños y familia', 'Mi lista']
+const itemsNavbar = [
+  { name: 'Películas', route: 'movies' },
+  { name: 'Series', route: 'series' },
+  { name: 'Mis favoritos', route: 'favorite' },
+]
 
 export const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -26,8 +30,8 @@ export const NavbarComponent = () => {
           Categorías
         </li>
         {itemsNavbar.map((item) => (
-          <li key={item} className="flex items-center px-4 cursor-pointer hover:border-b text-wrap">
-            {item}
+          <li key={item.name} onClick={() => navigate(`/${item.route}`)} className="flex items-center px-4 cursor-pointer hover:border-b text-wrap">
+            {item.name}
           </li>
         ))}
         <li className="flex items-center cursor-pointer">
@@ -43,8 +47,8 @@ export const NavbarComponent = () => {
             Categorías
           </li>
           {itemsNavbar.map((item) => (
-            <li key={item} className="p-3 cursor-pointer hover:bg-gray-700">
-              {item}
+            <li key={item.name} className="p-3 cursor-pointer hover:bg-gray-700" onClick={() => navigate(`/${item.route}`)}>
+              {item.name}
             </li>
           ))}
           <li className="p-3 text-white bg-red-500 cursor-pointer rounded-xl" onClick={logout}>

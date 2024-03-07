@@ -18,7 +18,7 @@ interface Movie {
   vote_count: number
 }
 
-export const useMovies = () => {
+export const useMovies = (numPage?: number) => {
   const [moviesData, setMoviesData] = useState<Movie[]>([])
   const [error, setError] = useState<string | null>(null)
 
@@ -31,7 +31,7 @@ export const useMovies = () => {
           include_adult: false,
           include_video: false,
           language: 'es',
-          page: 3,
+          page: numPage || 3,
           sort_by: 'popularity.desc',
         },
         headers: {
@@ -49,7 +49,7 @@ export const useMovies = () => {
     }
 
     fetchData()
-  }, [])
+  }, [numPage])
 
   return { moviesData, error }
 }
